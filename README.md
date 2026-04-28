@@ -1,2 +1,8 @@
-# GitHub-Actions-Template
-A collection of reusable GitHub Actions to automate your workflow: triggers a PR from develop to master on merge, and handles version bumping, tagging, and GitHub Release creation upon merging to master. Perfect for maintaining a seamless CI/CD pipeline and consistent branching standards.
+# GitHub Actions Automation Suite
+This repository centralizes reusable GitHub Action workflows designed to automate your development lifecycle and enforce standard branching policies.
+
+**Key Features:**
+- **Automated Flow:** Automatically creates or updates a Pull Request from `develop` to `master` upon every merge into the `develop` branch.
+- **Release Management:** On merging to `master`, the system handles **version bumping**, generates **Git tags**, and publishes a **GitHub Release** with automated release notes.
+
+Streamline your CI/CD and keep your branches in sync effortlessly.
