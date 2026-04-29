@@ -6,3 +6,18 @@ This repository centralizes reusable GitHub Action workflows designed to automat
 - **Release Management:** On merging to `master`, the system handles **version bumping**, generates **Git tags**, and publishes a **GitHub Release** with automated release notes.
 
 Streamline your CI/CD and keep your branches in sync effortlessly.
+
+```mermaid
+flowchart LR
+    feat["feature/**"]
+    dev["develop"]
+    pr(["Release PR\nchore: release X.X.X"])
+    main["main"]
+    rel[/"GitHub Release vX.X.X"/]
+
+    feat -->|"merged"| dev
+    dev -- "auto-created on push" --> pr
+    pr -->|"manually merged"| main
+    main -- "auto: bump patch version\ntag vX.X.X\npublish release" --> rel
+    main -->|"auto: force-sync"| dev
+```
