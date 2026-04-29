@@ -65,5 +65,5 @@ jobs:
         run: |
           git fetch origin develop
           git checkout develop
-          git merge main -X theirs --no-edit
-          git push origin develop
+          git reset --hard origin/main
+          git push --force-with-lease origin develop
