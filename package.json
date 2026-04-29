@@ -1,5 +1,5 @@
 {
   "name": "github-action-template",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "A collection of reusable GitHub Actions to automate your workflow: triggers a PR from develop to master on merge, and handles version bumping, tagging, and GitHub Release creation upon merging to master. Perfect for maintaining a seamless CI/CD pipeline and consistent branching standards."
 }
