@@ -46,10 +46,10 @@ jobs:
         if: steps.check-pr.outputs.pr_exists == 'false'
         run: |
           gh pr create \
-            --base master \
+            --base main \
             --head develop \
             --title "chore: release ${{ steps.version.outputs.version }}" \
-            --body "Automated release PR. Merge to master and tag a new version." \
+            --body "Automated release PR. Merge to `main` and tag a new version." \
             --label release
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
@@ -59,6 +59,6 @@ jobs:
         run: |
           gh pr edit ${{ steps.check-pr.outputs.pr_number }} \
             --title "chore: release ${{ steps.version.outputs.version }}" \
-            --body "Automated release PR. Merge to master and tag a new version."
+            --body "Automated release PR. Merge to `main` and tag a new version."
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}

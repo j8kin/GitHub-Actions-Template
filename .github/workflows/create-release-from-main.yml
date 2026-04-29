@@ -3,7 +3,7 @@ name: Create Release
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   tag-release:
@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: master
+          ref: main
           fetch-depth: 0
 
       - name: Bump patch version
@@ -55,15 +55,15 @@ jobs:
       - name: Create GitHub Release
         run: |
           gh release create "v${{ steps.bump.outputs.version }}" \
-            --target master \
+            --target main \
             --title "Release v${{ steps.bump.outputs.version }}" \
             --notes "${{ steps.release-notes.outputs.notes }}"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Sync master back to develop
+      - name: Sync main back to develop
         run: |
           git fetch origin develop
           git checkout develop
-          git merge master --no-edit
+          git merge main --no-edit
           git push origin develop
